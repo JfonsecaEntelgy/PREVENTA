@@ -2,7 +2,7 @@
 # Fecha = 31/08/2021
 ---
 - hosts: all
-  gather_facts: no
+  gather_facts: yes
 
   roles:
     - {role: SEG_ADD_IP_BLACKLIST}
