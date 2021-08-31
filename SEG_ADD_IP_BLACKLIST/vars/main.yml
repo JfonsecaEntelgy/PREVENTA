@@ -1,0 +1,9 @@
+# Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
+# Fecha = 31/08/2021
+---
+fw: "{{ host }}"
+addr: "{{ addr }}"
+ruta: "/tmp"
+script2: "createVARStoPBK.sh"
+file: "/tmp/address2"
+...
