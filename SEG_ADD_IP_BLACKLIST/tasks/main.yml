@@ -5,6 +5,7 @@
   copy:
     dest: "/tmp/{{ script2 }}"
     src: files/{{ script2 }}
+    remote_src: no
     delegate_to: localhost
     mode: 0755
 
