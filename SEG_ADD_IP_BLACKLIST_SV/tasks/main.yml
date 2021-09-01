@@ -1,15 +1,15 @@
 # Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
 # Fecha = 31/08/2021
 ---
-- name: Copy script to server
-  copy:
-    src: "{{ playbook_dir }}/files/{{ script2 }}"
-    dest: "/tmp/{{ script2 }}"
-    mode: 0755
+#- name: Copy script to server
+#  copy:
+#    src: "{{ playbook_dir }}/files/{{ script2 }}"
+#    dest: "/tmp/{{ script2 }}"
+#    mode: 0755
 
 - name: Copy script FWAddNewAddressBlacklist_v3.sh
   copy:
-    src: "{{ playbook_dir }}/files/FWAddNewAddressBlacklist_v3.sh"
+    src: FWAddNewAddressBlacklist_v3.sh
     dest: /tmp/FWAddNewAddressBlacklist_v3.sh
     mode: 0755
 
