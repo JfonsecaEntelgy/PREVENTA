@@ -1,0 +1,9 @@
+# Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
+# Fecha = 01/09/2021
+---
+- hosts: all
+  gather_facts: no
+   
+  roles:
+    - {role: SEG_ERRASE_USER_SV}
+...

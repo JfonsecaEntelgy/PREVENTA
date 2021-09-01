@@ -1,0 +1,72 @@
+# Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
+# Fecha = 01/09/2021
+---
+- name: Copy script to server
+  copy:
+    dest: "/tmp/{{ script2 }}"
+    src: files/{{ script2 }}
+    mode: 0755
+
+- name: Copy script DeleteUser.sh
+  copy:
+    dest: /tmp/DeleteUser.sh
+    src: files/DeleteUser.sh
+    mode: 0755
+
+- name: Copy script DelUserGroup.sh
+  copy:
+    dest: /tmp/DelUserGroup.sh
+    src: files/DelUserGroup.sh
+    mode: 0755
+
+- name: Copy script pruebaFiltro.sh
+  copy:
+    dest: /tmp/pruebaFiltro.sh
+    src: files/pruebaFiltro.sh
+    mode: 0755
+
+- name: Copy script runErraseUser.sh
+  copy:
+    dest: /tmp/runErraseUser.sh
+    src: files/runErraseUser.sh
+    mode: 0755
+
+- name: Delete user
+  command: 'sh {{ ruta }}/{{ script2 }} {{ fw }} {{ user }}'
+
+- name: Save result
+  command: 'cat {{ file }}_{{ user }}'
+  register: outGroups
+
+- name: Groups belonging to the deleted user ( "{{ user }}" )
+  debug:
+    msg: "{{ outGroups.stdout_lines }}"
+
+- name: Delete files temp
+  file:
+    state: absent
+    path: "{{ file }}_{{ user }}"
+
+- name: Remove temporal script "{{ script2 }}""
+  file:
+    path: "/tmp/{{ script2 }}"
+    state: absent
+
+- name: Remove script DeleteUser.sh
+  file:
+    path: /tmp/DeleteUser.sh
+    state: absend
+
+- name: Copy script DelUserGroup.sh
+  file:
+    path: /tmp/DelUserGroup.sh
+    state: absend
+- name: Copy script pruebaFiltro.sh
+  file:
+    path: /tmp/pruebaFiltro.sh
+    state: absend
+- name: Copy script runErraseUser.sh
+  file:
+    path: /tmp/runErraseUser.sh
+    state: absend
+...
