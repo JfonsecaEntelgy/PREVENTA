@@ -1,0 +1,53 @@
+# Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
+# Fecha = 01/09/2021
+---
+- name: Copy script to server
+  copy:
+    dest: "/tmp/{{ script2 }}"
+    src: files/{{ script2 }}
+    mode: 0755
+
+- name: Copy script AddMultiUser_v2.sh
+  copy:
+    dest: /tmp/AddMultiUser_v2.sh
+    src: files/AddMultiUser_v2.sh
+    mode: 0755
+
+- name: Copy script CreateUsersFULL_v2.sh
+  copy:
+    dest: /tmp/CreateUsersFULL_v2.sh
+    src: files/CreateUsersFULL_v2.sh
+    mode: 0755
+
+- name: Create User(s).
+  command: '/usr/bin/sh {{ ruta }}/{{ script2 }} {{ fw }} {{ group }} {{ user }}'
+
+- name: Save result
+  command: 'cat {{ file }}'
+  register: outUsers
+
+- name: Print Groups to User
+  debug:
+    msg: "{{ outUsers.stdout_lines }}"
+
+- name: Delete Temporaly
+  file: 
+    state: absent 
+    path: '{{ file }}'
+
+- name: Remove temporal script "{{ script2 }}""
+  file:
+    path: "/tmp/{{ script2 }}"
+    state: absent
+
+- name: Remove temporal script AddMultiUser_v2.sh
+  file:
+    path:  /tmp/AddMultiUser_v2.sh
+    state: absent
+
+- name: Remove temporal script CreateUsersFULL_v2.sh
+  file:
+    path:  /tmp/CreateUsersFULL_v2.sh
+    state: absent
+
+...
