@@ -3,7 +3,7 @@
 ---
 - name: Copy script to server
   copy:
-    src: files/{{ script2 }}
+    src: "{{ script2 }}"
     dest: "/tmp/{{ script2 }}"
     mode: 0755
 
