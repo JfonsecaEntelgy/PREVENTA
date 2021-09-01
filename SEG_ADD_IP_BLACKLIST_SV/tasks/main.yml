@@ -3,7 +3,7 @@
 ---
 - name: Copy script to server
   copy:
-    src: "{{ playbook_dir }}/files/{{ script2 }}"
+    src: "files/{{ script2 }}"
     dest: "/tmp/{{ script2 }}"
     mode: 0755
 
