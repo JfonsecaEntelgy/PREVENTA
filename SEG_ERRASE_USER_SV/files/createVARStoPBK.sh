@@ -2,7 +2,7 @@
 # Fecha = 01/09/2021
 #!/bin/bash
 script="runErraseUser.sh"
-ruta=/home/jrfonseca
+ruta=/home/jfonseca
 ruta2=/tmp
 fwh=$1
 user=$2
