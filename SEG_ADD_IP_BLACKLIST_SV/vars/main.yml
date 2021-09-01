@@ -4,6 +4,6 @@
 fw: "{{ host }}"
 addr: "{{ addr }}"
 ruta: "/tmp"
-script2: "createVARStoPBK.sh"
+script2: "CreateVARStoPBK.sh"
 file: "/tmp/address2"
 ...
