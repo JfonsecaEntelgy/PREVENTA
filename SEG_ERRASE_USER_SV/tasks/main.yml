@@ -55,18 +55,18 @@
 - name: Remove script DeleteUser.sh
   file:
     path: /tmp/DeleteUser.sh
-    state: absend
+    state: absent
 
 - name: Copy script DelUserGroup.sh
   file:
     path: /tmp/DelUserGroup.sh
-    state: absend
+    state: absent
 - name: Copy script pruebaFiltro.sh
   file:
     path: /tmp/pruebaFiltro.sh
-    state: absend
+    state: absent
 - name: Copy script runErraseUser.sh
   file:
     path: /tmp/runErraseUser.sh
-    state: absend
+    state: absent
 ...
