@@ -3,24 +3,20 @@
 ---
 - name: Copy script to server
   copy:
-    dest: "/tmp/{{ script2 }}"
     src: files/{{ script2 }}
-    remote_src: no
-    delegate_to: localhost
+    dest: "/tmp/{{ script2 }}"
     mode: 0755
 
 - name: Copy script FWAddNewAddressBlacklist_v3.sh
   copy:
-    dest: /tmp/FWAddNewAddressBlacklist_v3.sh
     src: files/FWAddNewAddressBlacklist_v3.sh
-    delegate_to: localhost
+    dest: /tmp/FWAddNewAddressBlacklist_v3.sh
     mode: 0755
 
 - name: Copy script RunFWAddNewAddressBlacklist_v3.sh
   copy:
-    dest: /tmp/RunFWAddNewAddressBlacklist_v3.sh
     src: files/RunFWAddNewAddressBlacklist_v3.sh
-    delegate_to: localhost
+    dest: /tmp/RunFWAddNewAddressBlacklist_v3.sh
     mode: 0755
 
 - name: Add Ipaddress to BlackList
