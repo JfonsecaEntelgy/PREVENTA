@@ -20,5 +20,5 @@ do
         sleep 3
 done
 /usr/bin/expect $ruta/$script3 $host $user $login $password
-rm -rf /tmp/consulta_$user
+#rm -rf /tmp/consulta_$user
 exit 0
