@@ -7,16 +7,16 @@
     src: files/{{ script2 }}
     mode: 0755
 
-- name: Copy script AddMultiUser_v2.sh
+- name: Copy script AddMultiUser.sh
   copy:
-    dest: /tmp/AddMultiUser_v2.sh
-    src: files/AddMultiUser_v2.sh
+    dest: /tmp/AddMultiUser.sh
+    src: files/AddMultiUser.sh
     mode: 0755
 
-- name: Copy script CreateUsersFULL_v2.sh
+- name: Copy script CreateUsersFULL.sh
   copy:
-    dest: /tmp/CreateUsersFULL_v2.sh
-    src: files/CreateUsersFULL_v2.sh
+    dest: /tmp/CreateUsersFULL.sh
+    src: files/CreateUsersFULL.sh
     mode: 0755
 
 - name: Create User(s).
@@ -40,14 +40,14 @@
     path: "/tmp/{{ script2 }}"
     state: absent
 
-- name: Remove temporal script AddMultiUser_v2.sh
+- name: Remove temporal script AddMultiUser.sh
   file:
-    path:  /tmp/AddMultiUser_v2.sh
+    path:  /tmp/AddMultiUser.sh
     state: absent
 
-- name: Remove temporal script CreateUsersFULL_v2.sh
+- name: Remove temporal script CreateUsersFULL.sh
   file:
-    path:  /tmp/CreateUsersFULL_v2.sh
+    path:  /tmp/CreateUsersFULL.sh
     state: absent
 
 ...
