@@ -1,0 +1,52 @@
+# Autor = Ing. Julian Ricardo Fonseca A - Consultor Senior Ansible (Entelgy)
+# Fecha = 06/09/2021
+---
+- name: Copy script to server
+  copy:
+    dest: "/tmp/{{ script2 }}"
+    src: files/{{ script2 }}
+    mode: 0755
+
+- name: Copy script runPruebaFiltro.sh
+  copy:
+    dest: /tmp/runPruebaFiltro.sh
+    src: files/runPruebaFiltro.sh
+    mode: 0755
+
+- name: Copy script pruebaFiltro.sh
+  copy:
+    dest: /tmp/pruebaFiltro.sh
+    src: files/pruebaFiltro.sh
+    mode: 0755
+
+- name:  Search user to group.
+  command: '/usr/bin/sh {{ ruta }}/{{ script2 }} {{ fw }} {{ user }}'
+
+- name: Save result
+  command: 'cat {{ file }}_{{ user }}'
+  register: outGroups
+
+- name: Print Groups to User '{{ user }}'
+  debug:
+    msg: "{{ outGroups.stdout_lines }}"
+
+- name: Delete files temp
+  file:
+    state: absent
+    path: "{{ file }}_{{ user }}"
+
+- name: Remove temporal script "{{ script2 }}""
+  file:
+    path: "/tmp/{{ script2 }}"
+    state: absent
+
+- name: Remove temporal script runPruebaFiltro.sh
+  file:
+    path: /tmp/runPruebaFiltro.sh
+    state: absent
+
+- name: Remove temporal script pruebaFiltro.sh
+  file:
+    path: "/tmp/pruebaFiltro.sh"
+    state: absent
+...
