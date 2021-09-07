@@ -14,8 +14,8 @@ set prompt ":|#|\\\$"
 interact -o -nobuffer -re $prompt return
 send "$loginPassword\r"
 set timeout 4
-expect "):"
-send "a"
+#expect "):"
+#send "a"
 expect "#"
 send "show user group | grep -f $user\n"
 expect "#"; exit 0
