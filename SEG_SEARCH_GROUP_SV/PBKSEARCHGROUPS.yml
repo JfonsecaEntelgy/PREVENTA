@@ -5,5 +5,5 @@
   gather_facts: no
    
   roles:
-    - {role: SEG_TRA_008_SEARCH_GROUP}
+    - {role: SEG_SEARCH_GROUP_SV}
 ...
